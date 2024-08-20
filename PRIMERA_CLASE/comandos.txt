@@ -1,0 +1,8 @@
+go mod init example/Hello   # crea un archivo go.mod
+
+go mod tidy                 # limpia el archivo go.mod
+
+go build main.go            # compila el archivo main.go
+go build .                  # compila todos los archivos del directorio
+
+go run main.go              # compila y ejecuta el archivo main.go
