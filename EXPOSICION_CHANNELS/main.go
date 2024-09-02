@@ -12,7 +12,7 @@ func sendNumbers(ch chan int) {
 		fmt.Printf("Enviado: %d\n", i)
 		time.Sleep(time.Second)
 	}
-	close(ch) // Buena práctica: cerrar el channel cuando no se usarán más datos
+	close(ch) // Cerrar el channel cuando no se usarán más datos
 }
 
 // Función que envía mensajes a un buffered channel
@@ -28,12 +28,15 @@ func sendMessages(ch chan string) {
 
 func main() {
 	// Crear un unbuffered channel
+	fmt.Printf("Creando unbuffered channel...\n")
 	intChan := make(chan int)
 
 	// Crear un buffered channel
+	fmt.Printf("Creando buffered channel...\n")
 	stringChan := make(chan string, 2)
 
 	// Lanzar goroutines
+	fmt.Printf("Lanzando goroutines...\n")
 	go sendNumbers(intChan)
 	go sendMessages(stringChan)
 
